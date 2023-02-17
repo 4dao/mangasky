@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #floating-window {
+          display: none;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border: 1px solid gray;
+        }
+        </style>
+</head>
+<body>
+    <div id="target">Mouse over me for 5 seconds</div>
+    <div id="floating-window">
+      <p>Informações da div</p>
+    </div>
+    
+
+
+
+
+
+
+
+    <script>
+        const target = document.getElementById("target");
+        const floatingWindow = document.getElementById("floating-window");
+        
+        let timer;
+        target.addEventListener("mouseover", function() {
+          timer = setTimeout(function() {
+            floatingWindow.style.display = "block";
+          }, 5000);
+        });
+        
+        target.addEventListener("mouseout", function() {
+          clearTimeout(timer);
+          floatingWindow.style.display = "none";
+        });
+        </script>
+    
+</body>
+</html>
